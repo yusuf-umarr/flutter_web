@@ -15,7 +15,9 @@ class Header extends StatelessWidget {
                 .textTheme
                 .headlineSmall!
                 .copyWith(color: Colors.white)),
-        const Spacer(),
+        const Spacer(
+          flex: 2,
+        ),
         const Expanded(child: SearchField()),
         const ProfileCard()
       ],
