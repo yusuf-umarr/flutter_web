@@ -14,7 +14,7 @@ class Header extends StatelessWidget {
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
-          IconButton(onPressed: () => context.read<MenuAppController>().controlMenu(), icon: Icon(Icons.menu)),
+          IconButton(onPressed: () => context.read<MenuAppController>().controlMenu(), icon: const Icon(Icons.menu)),
         if (!Responsive.isMobile(context))
           Text("Dashboard",
               style: Theme.of(context)
