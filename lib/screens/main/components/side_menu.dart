@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_mobile/screens/main/components/drawer_list_tile.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({
-    super.key,
-  });
+  const SideMenu({super.key});
 
   @override
   Widget build(BuildContext context) {

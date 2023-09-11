@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_mobile/constants.dart';
+import 'package:flutter_web_mobile/responsive.dart';
 import 'package:flutter_web_mobile/screens/dashboard/components/header.dart';
 import 'package:flutter_web_mobile/screens/dashboard/components/my_files.dart';
 import 'package:flutter_web_mobile/screens/dashboard/components/recent_file.dart';
@@ -23,18 +24,26 @@ class DashboardScreen extends StatelessWidget {
                 Expanded(
                   flex: 5,
                   child: Column(
-                    children: const [
+                    children: [
                       MyFiles(),
                       SizedBox(height: defaultPadding),
-                      RecentFiles()
+                      RecentFiles(),
+                      if (Responsive.isMobile(context))
+                        const SizedBox(height: defaultPadding),
+                      //show on mobile view
+                      if (Responsive.isMobile(context)) StorageDetail()
                     ],
                   ),
                 ),
-                const SizedBox(width: defaultPadding),
-                const Expanded(
-                  flex: 2,
-                  child: StorageDetail(),
-                )
+                ////
+                if (!Responsive.isMobile(context))
+                  const SizedBox(width: defaultPadding),
+                //hide on mobile view
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: StorageDetail(),
+                  )
               ],
             )
           ],
@@ -43,3 +52,5 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
+
+
